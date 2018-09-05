@@ -1,0 +1,97 @@
+<div class="animated fadeIn">
+  <!-- Breadcrumb-->
+  <ol class="breadcrumb p-0 mb-4">
+    <h2 class="m-0 text-dark">新建文章</h2>
+    <!-- Breadcrumb Menu-->
+    <li class="breadcrumb-menu d-md-down-none">
+      <ul class="d-flex list-unstyled">
+        <li class="breadcrumb-item">
+          <i class="fa fa-home"></i>
+        </li>
+        <li class="breadcrumb-item active">
+          <a href="#/pages/new-article.html">
+            <i class="fa fa-circle-o"></i> 新建发布</a>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <!-- /.Breadcrumb -->
+
+
+  <div class="card">
+    <div class="card-header">
+      新建一篇文章
+      <small class="text-danger">
+        在写作的过程中不要忘记保存 ( ctrl+s/command+s ) 哦，虽然程序会每隔2分钟自动保存一次！！！
+      </small>
+
+      <div class="card-header-actions">
+        <button type="reset" class="btn btn-sm btn-primary">
+          <i class="fa icon-check"></i> 存为草稿
+        </button>
+        <button type="reset" class="btn btn-sm btn-success">
+          <i class="fa icon-cursor"></i> 发表
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  文章标题
+                </span>
+              </div>
+              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="文章标题">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  自定义访问地址
+                </span>
+              </div>
+              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  分类
+                </span>
+              </div>
+              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="分类">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  标签
+                </span>
+              </div>
+              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="标签">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div id="thole-editor">
+            <textarea style="display:none;">### Hello Editor.md !</textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

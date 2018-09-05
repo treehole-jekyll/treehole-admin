@@ -12,7 +12,16 @@
   <link rel="stylesheet" href="node_modules/simple-line-icons/css/simple-line-icons.css">
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
-  <title>RacikUI Bootstrap Admin Ajax</title>
+
+   <!-- REQUIRED SCRIPTS -->
+   <script src="node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="node_modules/pace-progress/pace.min.js"></script>
+   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+   <script src="node_modules/@racikui/racikui-bootstrap/dist/js/racikui.min.js"></script>
+
+  <title>TreeHole 管理端</title>
 </head>
 <body class="o-app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show ui-indigo">
   <!-- Header -->
@@ -21,22 +30,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand text-brand" href="#">
-      <div class="navbar-brand-full"><h3 class="m-0">RacikUI</h3></div>
-      <div class="navbar-brand-minimized"><h3 class="m-0">UI</h3></div>
+      <div class="navbar-brand-full"><h3 class="m-0">TreeHole</h3></div>
+      <div class="navbar-brand-minimized"><h3 class="m-0">THole</h3></div>
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Nav Left -->
-    <ul class="nav navbar-nav d-md-down-none">
+    <!-- 这里是上边的菜单 -->
+    <!-- <ul class="nav navbar-nav d-md-down-none">
       <li class="nav-item px-3">
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item px-3">
         <a class="nav-link" href="#">Settings</a>
       </li>
-    </ul>
+    </ul> -->
 
     <!-- Nav right -->
     <ul class="nav navbar-nav ml-auto">
@@ -111,184 +121,59 @@
           <!-- Dashboard -->
           <li class="nav-item">
             <a class="nav-link" href="dashboard.html">
-              <i class="nav-icon icon-speedometer"></i> Dashboard v1
-              <span class="badge badge-success">NEW</span></a>
-          </li>
-          <li class="nav-title">Theme</li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/colors.html">
-              <i class="nav-icon icon-drop"></i> Colors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/typography.html">
-              <i class="nav-icon icon-pencil"></i> Typography</a>
-          </li>
-          <li class="nav-title">Components</li>
-          <!-- Base -->
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> Base</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="base/breadcrumb.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Breadcrumb</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/cards.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Cards</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/carousel.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Carousel</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/collapse.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Collapse</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/forms.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Forms</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/list-group.html">
-                  <i class="nav-icon fa fa-circle-o"></i> List group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/navs.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Navs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/pagination.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Pagination</a>
-              </li>              
-              <li class="nav-item">
-                <a class="nav-link" href="base/popovers.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Popovers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/progress.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Progress</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/scrollspy.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Scrollspy</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/switches.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Switches</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tables.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Tables</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tabs.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Tabs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tooltips.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Tooltips</a>
-              </li>
-            </ul>
-          </li>
-          <!-- Buttons -->
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Buttons</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/buttons.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Buttons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/button-group.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Buttons Group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/dropdowns.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Dropdowns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/brand-buttons.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Brand Buttons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/charts.html">
-              <i class="nav-icon icon-pie-chart"></i> Charts</a>
-          </li>
-          <!-- Icons -->
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-star"></i> Icons</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="icons/font-awesome.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Font Awesome
-                  <span class="badge badge-secondary">4.7</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="icons/simple-line-icons.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Simple Line Icons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/widgets.html">
-              <i class="nav-icon icon-calculator"></i> Widgets
-              <span class="badge badge-success">NEW</span>
+              <i class="nav-icon icon-speedometer"></i> 首页
+              <!-- <span class="badge badge-success">NEW</span> -->
             </a>
           </li>
-          <li class="divider"></li>
-          <li class="nav-title">Examples</li>
+          <li class="nav-title">文章管理</li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/new-article.html">
+              <i class="nav-icon icon-plus"></i> 新建发布 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/article-manage.html">
+              <i class="nav-icon icon-docs"></i> 文章管理 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/kind-manage.html">
+              <i class="nav-icon icon-list"></i> 分类管理 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/article-manage.html">
+              <i class="nav-icon fa fa-commenting-o"></i> 评论管理 </a>
+          </li>
+          <li class="nav-title">系统管理</li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/article-manage.html">
+              <i class="nav-icon fa fa-id-card-o"></i> 基础信息 </a>
+          </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon fa fa-book"></i> Pages</a>
+              <i class="nav-icon fa fa-area-chart"></i>统计信息</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="login.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> Login</a>
+                  <i class="nav-icon fa fa-circle-o"></i> 访问统计</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login2.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> Login2</a>
+                  <i class="nav-icon fa fa-circle-o"></i> 来源统计</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="register.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> Register</a>
+                  <i class="nav-icon fa fa-circle-o"></i> 浏览器统计</a>
               </li>
             </ul>
           </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon fa fa-plus-square-o"></i> Extra</a>
-            <ul class="nav-dropdown-items">              
-              <li class="nav-item">
-                <a class="nav-link" href="404.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> Error 404</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="500.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> Error 500</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/blank.html">
-                  <i class="nav-icon fa fa-circle-o"></i> Blank Pages</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-title">Miscellaneous</li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="nav-icon fa fa-file"></i> Documentation
-            </a>
+            <a class="nav-link" href="pages/article-manage.html">
+              <i class="nav-icon icon-settings"></i> 系统设置 </a>
           </li>
-          <!-- Download RacikUI -->
-          <li class="nav-item mt-auto">
-            <a class="nav-link nav-link-success" href="#" target="_top">
-              <i class="nav-icon icon-cloud-download"></i> Download</a>
+          <li class="divider"></li>
+          <li class="nav-title">素材管理</li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/article-manage.html">
+              <i class="nav-icon icon-doc"></i> 素材管理 </a>
           </li>
         </ul>
       </nav>
@@ -328,14 +213,6 @@
     </div>
   </footer>
   <!-- /.Footer -->
-
-  <!-- REQUIRED SCRIPTS -->
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="node_modules/pace-progress/pace.min.js"></script>
-  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-  <script src="node_modules/@racikui/racikui-bootstrap/dist/js/racikui.min.js"></script>
   <script>
     $('#loadview').ajaxLoad();
     $(document).ajaxComplete(function() {

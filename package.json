@@ -101,5 +101,6 @@
     "Safari >= 9",
     "Android >= 4.4",
     "Opera >= 30"
-  ]
+  ],
+  "__npminstall_done": false
 }
