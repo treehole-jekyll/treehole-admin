@@ -1,3 +1,7 @@
+<script src="js/mditor.js"></script>
+<script src="js/treehole-editor.js"></script>
+
+
 <div class="animated fadeIn">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
@@ -37,56 +41,77 @@
 
     <div class="card-body">
       <form action="" method="post" class="form-horizontal">
-        <div class="form-group row">
-          <div class="col-md-12">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  文章标题
-                </span>
-              </div>
-              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="文章标题">
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-md-12">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  自定义访问地址
-                </span>
-              </div>
-              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
-            </div>
-          </div>
-        </div>
 
         <div class="form-group row">
-          <div class="col-md-6">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  分类
-                </span>
-              </div>
-              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="分类">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  标签
-                </span>
-              </div>
-              <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="标签">
-            </div>
-          </div>
-        </div>
+            <div class="col-md-8">
+                <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            文章标题
+                          </span>
+                        </div>
+                        <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="文章标题">
+                      </div>
+                    </div>
+                  </div>
 
+                  <div class="form-group row">
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              自定义访问地址
+                            </span>
+                          </div>
+                          <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              分类
+                            </span>
+                          </div>
+                          <!-- <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="分类"> -->
+                          <select class="form-control">
+                            <option value="0">请选择</option>
+                            <option value="1">广州市</option>
+                            <option value="2">深圳市</option>
+                            <option value="3">湛江市</option>
+                            <option value="4">北京市</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              标签
+                            </span>
+                          </div>
+                          <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="请输入标签，不同的标签使用空格隔开">
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                上传预览图
+            </div>
+        </div>
         <div class="form-group row">
-            <textarea id="thole-editor" >### Hello Editor.md !</textarea>
+            <textarea id="thole-editor" >
+文章简介
+
+------
+
+文章内容
+            </textarea>
         </div>
       </form>
     </div>
@@ -98,6 +123,3 @@
   width: 100%;
 }
 </style>
-
-<script src="js/mditor.js"></script>
-<script src="js/treehole-editor.js"></script>
