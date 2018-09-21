@@ -10,6 +10,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="node_modules/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css"/>
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -20,6 +21,8 @@
    <script src="node_modules/pace-progress/pace.min.js"></script>
    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
    <script src="node_modules/@racikui/racikui-bootstrap/dist/js/racikui.min.js"></script>
+   <script type="text/javascript" src="js/moment.min.js"></script>
+   <script type="text/javascript" src="js/daterangepicker.js"></script>
 
   <title>TreeHole 管理端</title>
 </head>
@@ -149,19 +152,19 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon fa fa-area-chart"></i>统计信息</a>
+              <i class="nav-icon fa fa-area-chart"></i>访问统计</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href="login.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> 访问统计</a>
+                <a class="nav-link" href="pages/visit-from.html">
+                  <i class="nav-icon fa fa-circle-o"></i>来源统计</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login2.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> 来源统计</a>
+                <a class="nav-link" href="pages/visit-be.html">
+                  <i class="nav-icon fa fa-circle-o"></i>受访统计</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html" target="_top">
-                  <i class="nav-icon fa fa-circle-o"></i> 浏览器统计</a>
+                <a class="nav-link" href="pages/visit-log.html">
+                  <i class="nav-icon fa fa-circle-o"></i>访问日志</a>
               </li>
             </ul>
           </li>
