@@ -1,5 +1,6 @@
 <script src="js/mditor.js"></script>
 <script src="js/treehole-editor.js"></script>
+<script src="js/treehole-file-upload.js"></script>
 
 
 <div class="animated fadeIn">
@@ -40,86 +41,109 @@
     </div>
 
     <div class="card-body">
-      <form action="" method="post" class="form-horizontal">
-
-        <div class="form-group row">
-            <div class="col-md-8">
-                <div class="form-group row">
-                    <div class="col-md-12">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            文章标题
-                          </span>
-                        </div>
-                        <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="文章标题">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                      <div class="col-md-12">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              自定义访问地址
-                            </span>
-                          </div>
-                          <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <div class="col-md-6">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              分类
-                            </span>
-                          </div>
-                          <!-- <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="分类"> -->
-                          <select class="form-control">
-                            <option value="0">请选择</option>
-                            <option value="1">广州市</option>
-                            <option value="2">深圳市</option>
-                            <option value="3">湛江市</option>
-                            <option value="4">北京市</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              标签
-                            </span>
-                          </div>
-                          <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="请输入标签，不同的标签使用空格隔开">
-                        </div>
-                      </div>
-                    </div>
+      <div class="form-group row">
+        <div class="col-md-8">
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    文章标题
+                  </span>
+                </div>
+                <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="文章标题">
+              </div>
             </div>
-            <div class="col-md-4">
-                上传预览图
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    自定义访问地址
+                  </span>
+                </div>
+                <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
+              </div>
             </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    分类
+                  </span>
+                </div>
+                <!-- <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="分类"> -->
+                <select class="form-control">
+                  <option value="0">请选择</option>
+                  <option value="1">广州市</option>
+                  <option value="2">深圳市</option>
+                  <option value="3">湛江市</option>
+                  <option value="4">北京市</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    标签
+                  </span>
+                </div>
+                <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="请输入标签，不同的标签使用空格隔开">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group row">
-            <textarea id="thole-editor" >
+        <div class="col-md-4">
+          <div class="card" id="upload-warpper" style="height: 100%;">
+            <div class="upload-text"><i class="fa fa-cloud-upload fa-lg"></i> <span>上传预览图</span></div>
+            <input type="file" class="btn upload-btn" id="fileload" multiple onchange="preview()" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <textarea id="thole-editor">
 文章简介
 
 ------
 
-文章内容
-            </textarea>
-        </div>
-      </form>
+文章内容</textarea>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-.mditor-mini {
-  width: 100%;
-}
+  .mditor-mini {
+    width: 100%;
+  }
+
+  #upload-warpper{
+    display: table;
+    width: 100%;
+  }
+  .upload-btn{
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .upload-text {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align:middle;
+  }
+
 </style>
