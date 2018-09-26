@@ -1,23 +1,70 @@
-$(function () {
-  $.fn.filepond.registerPlugin(FilePondPluginImagePreview);
-  $.fn.filepond.registerPlugin(FilePondPluginImageResize);
-  $.fn.filepond.registerPlugin(FilePondPluginFileValidateType);
-  // Turn input element into a pond
-  $('.my-pond').filepond();
-  // Set allowMultiple property to true
-  $('.my-pond').filepond('allowMultiple', true);
+function preview() {
+  const files = $('#fileload')[0].files
 
-  $('.my-pond').filepond('labelIdle', "请选择图片");
-  $('.my-pond').filepond('imagePreviewHeight', 70);
-  $('.my-pond').filepond('imageCropAspectRatio', '1:1');
-  $('.my-pond').filepond('imageResizeTargetWidth', 100);
+  const filesList = []
+  for (let i = 0; i < files.length; i++) {
+    filesList.push(files[i])
+  }
 
-  // Listen for addfile event
-  $('.my-pond').on('FilePond:addfile', function (e) {
-    console.log('file added event', e);
-  });
-  // Manually add a file using the addfile method
-  $('.my-pond').first().filepond('addFile', 'index.html').then(function (file) {
-    console.log('file added', file);
-  });
-})
+  filesList.filter(ele => fileTypeFilter(ele)).filter(ele => fileSizeFilter(ele)).forEach(ele => {
+    readImage(ele)
+  })
+}
+
+
+/**
+ *  过滤文件格式
+ * @param {File} file
+ * @returns {Boolean} isAccept
+ */
+function fileTypeFilter(file) {
+  const result = $.inArray(file.type, ["image/png", "image/gif", "image/jpg", "image/jpeg"]) >= 0
+  if (!result) {
+    console.log("file type not accepted", file.type)
+  }
+  return result
+}
+
+/**
+ * 过滤文件大小
+ * @param {File} file
+ */
+function fileSizeFilter(file) {
+  const result = file.size < 2014 * 1024 * 100
+  if (!result) {
+    console.log("file size not accepted", file.size)
+  }
+  return result
+}
+
+/**
+ * 读取图片文件
+ * @param {File} file
+ */
+function readImage(file) {
+  const reader = new FileReader();
+  const warpperWidth = $("#upload-warpper").width()
+  const warpperHeight = $("#upload-warpper").height()
+  console.log(warpperHeight)
+  reader.readAsDataURL(file);
+  reader.onload = function (e) {
+    url = reader.result
+    const img = new Image()
+    img.src = url
+    const width = img.width
+    const height = img.height
+    let size = ""
+    if (width > height) {
+      size = "auto 100%"
+    } else {
+      size = "100% auto"
+    }
+    $("#upload-warpper")
+      .css("background-image", 'url("' + url + '")')
+      .css('background-size', "100%")
+      .css('background-repeat', 'no-repeat')
+      .css('background-position', 'top')
+
+    $(".upload-text").hide()
+  };
+}
