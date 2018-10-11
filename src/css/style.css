@@ -14409,7 +14409,8 @@ body {
   background: #007bff;
 }
 /*# sourceMappingURL=style.css.map */
+
 .chart {
   width: 100%;
-  min-height: 300px;
+  height: 300px;
 }

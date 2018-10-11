@@ -141,5 +141,83 @@ var referer_from_option = {
 referer_from_char.setOption(referer_from_option)
 
 
+var search_from_char = echarts.init(document.getElementById('search-from'), 'treehole');
+var search_from_option = {
+  color: ['#3398DB'],
+  tooltip : {
+      trigger: 'axis',
+      axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+          type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+      }
+  },
+  grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+  },
+  xAxis : [
+      {
+          type : 'category',
+          data : ['百度', '谷歌', '搜狗', '必应'],
+          axisTick: {
+              alignWithLabel: true
+          }
+      }
+  ],
+  yAxis : [
+      {
+          type : 'value'
+      }
+  ],
+  series : [
+      {
+          name:'访问量',
+          type:'bar',
+          barWidth: '60%',
+          data:[10, 52, 200, 334]
+      }
+  ]
+};
+search_from_char.setOption(search_from_option)
 
 
+var iso_type_char = echarts.init(document.getElementById('iso-type'), 'treehole');
+var iso_type_option = {
+  color: ['#3398DB'],
+  tooltip : {
+      trigger: 'axis',
+      axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+          type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+      }
+  },
+  grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+  },
+  xAxis : [
+      {
+          type : 'category',
+          data : ['安卓', 'IOS', 'windows7', 'macOS'],
+          axisTick: {
+              alignWithLabel: true
+          }
+      }
+  ],
+  yAxis : [
+      {
+          type : 'value'
+      }
+  ],
+  series : [
+      {
+          name:'访问量',
+          type:'bar',
+          barWidth: '60%',
+          data:[10, 52, 200, 334]
+      }
+  ]
+};
+iso_type_char.setOption(iso_type_option)
