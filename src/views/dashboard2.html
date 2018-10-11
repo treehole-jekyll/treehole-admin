@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="text-value">675</div>
-          <div>文章总数</div>
+          <div>Members online</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
           <canvas id="card-chart1" class="chart" height="70"></canvas>
@@ -48,7 +48,7 @@
             <i class="icon-location-pin"></i>
           </button>
           <div class="text-value">12.570</div>
-          <div>评论总数</div>
+          <div>Likes</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
           <canvas id="card-chart2" class="chart" height="70"></canvas>
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="text-value">7.560</div>
-          <div>素材总数</div>
+          <div>Sale</div>
         </div>
         <div class="chart-wrapper mt-3" style="height:70px;">
           <canvas id="card-chart3" class="chart" height="70"></canvas>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="text-value">100</div>
-          <div>访问统计</div>
+          <div>Unique Visitors</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
           <canvas id="card-chart4" class="chart" height="70"></canvas>
@@ -104,10 +104,193 @@
   <!--/.row-->
 
   <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header no-border">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Online Store Visitors</h3>
+            <div class="card-header-actions">
+              <a href="#" class="card-header-action btn-setting">
+                <i class="fa fa-line-chart"></i> View Report
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="d-flex">
+            <p class="d-flex flex-column">
+              <span class="text-bold text-lg">820</span>
+              <span>Visitors Over Time</span>
+            </p>
+            <p class="ml-auto d-flex flex-column text-right">
+              <span class="text-success">
+                <i class="fa fa-arrow-up"></i> 12.5%
+              </span>
+              <span class="text-muted">Since last week</span>
+            </p>
+          </div>
+          <!-- /.d-flex -->
+
+          <div class="position-relative mb-4">
+            <canvas id="visitors-chart" height="200"></canvas>
+          </div>
+
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fa fa-square text-primary"></i> This Week
+            </span>
+
+            <span>
+              <i class="fa fa-square text-gray"></i> Last Week
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col-lg-6 -->
+
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header no-border">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Sales</h3>
+            <div class="card-header-actions">
+              <a href="#" class="card-header-action btn-setting">
+                <i class="fa fa-line-chart"></i> View Report
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="d-flex">
+            <p class="d-flex flex-column">
+              <span class="text-bold text-lg">$18,230.00</span>
+              <span>Sales Over Time</span>
+            </p>
+            <p class="ml-auto d-flex flex-column text-right">
+              <span class="text-success">
+                <i class="fa fa-arrow-up"></i> 33.1%
+              </span>
+              <span class="text-muted">Since last month</span>
+            </p>
+          </div>
+          <!-- /.d-flex -->
+
+          <div class="position-relative mb-4">
+            <canvas id="sales-chart" height="200"></canvas>
+          </div>
+
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fa fa-square text-primary"></i> This year
+            </span>
+
+            <span>
+              <i class="fa fa-square text-gray"></i> Last year
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col-lg-6 -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="brand-card">
+        <div class="brand-card-header bg-facebook">
+          <i class="fa fa-facebook"></i>
+          <div class="chart-wrapper">
+            <canvas id="social-box-chart-1" height="90"></canvas>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">1K</div>
+            <div class="text-uppercase text-muted small">friends</div>
+          </div>
+          <div>
+            <div class="text-value">5</div>
+            <div class="text-uppercase text-muted small">feeds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="brand-card">
+        <div class="brand-card-header bg-twitter">
+          <i class="fa fa-twitter"></i>
+          <div class="chart-wrapper">
+            <canvas id="social-box-chart-2" height="90"></canvas>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">1K</div>
+            <div class="text-uppercase text-muted small">followers</div>
+          </div>
+          <div>
+            <div class="text-value">1.235</div>
+            <div class="text-uppercase text-muted small">tweets</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="brand-card">
+        <div class="brand-card-header bg-linkedin">
+          <i class="fa fa-linkedin"></i>
+          <div class="chart-wrapper">
+            <canvas id="social-box-chart-3" height="90"></canvas>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">100+</div>
+            <div class="text-uppercase text-muted small">contacts</div>
+          </div>
+          <div>
+            <div class="text-value">10</div>
+            <div class="text-uppercase text-muted small">feeds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="brand-card">
+        <div class="brand-card-header bg-google-plus">
+          <i class="fa fa-google-plus"></i>
+          <div class="chart-wrapper">
+            <canvas id="social-box-chart-4" height="90"></canvas>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">13K</div>
+            <div class="text-uppercase text-muted small">followers</div>
+          </div>
+          <div>
+            <div class="text-value">100</div>
+            <div class="text-uppercase text-muted small">circles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+  <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          一周流量
+          Traffic &amp; Sales
         </div>
         <div class="card-body">
           <div class="row">
@@ -115,7 +298,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="callout callout-info">
-                    <small class="text-muted">一周 PV 统计</small>
+                    <small class="text-muted">New Clients</small>
                     <br>
                     <strong class="h4">10</strong>
                     <div class="chart-wrapper">
@@ -126,7 +309,7 @@
                 <!--/.col-->
                 <div class="col-sm-6">
                   <div class="callout callout-danger">
-                    <small class="text-muted">一周 UV 统计</small>
+                    <small class="text-muted">Recuring Clients</small>
                     <br>
                     <strong class="h4">75</strong>
                     <div class="chart-wrapper">
@@ -249,7 +432,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="callout callout-warning">
-                    <small class="text-muted">一周 IP 数</small>
+                    <small class="text-muted">Pageviews</small>
                     <br>
                     <strong class="h4">1,465</strong>
                     <div class="chart-wrapper">
@@ -260,9 +443,9 @@
                 <!--/.col-->
                 <div class="col-sm-6">
                   <div class="callout callout-success">
-                    <small class="text-muted">一周评论数</small>
+                    <small class="text-muted">Likes</small>
                     <br>
-                    <strong class="h4">0</strong>
+                    <strong class="h4">49,123</strong>
                     <div class="chart-wrapper">
                       <canvas id="sparkline-chart-4" width="100" height="30"></canvas>
                     </div>
