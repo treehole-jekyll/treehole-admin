@@ -15,7 +15,6 @@ function readyNumber() {
 
 readyNumber()
 
-
 // hotkeys('ctrl+s', function(event,handler) {
 //   event.preventDefault()
 //   alert("ctrl s")
@@ -24,28 +23,46 @@ readyNumber()
 var ctrlDown = false;
 var sDown = false;
 
-$("#thole-editor").bind("keydown",function(event){
+$("#thole-editor").bind("keydown", function (event) {
   var k = event.which;
-  if(k === 17){
+  const ctrlK = getOsType()
+  if (k === ctrlK) {
     ctrlDown = true
     event.preventDefault()
   }
-  if(ctrlDown){
+  if (ctrlDown) {
     event.preventDefault()
-    if(k == 83){
+    if (k == 83) {
       funCtrlS()
     }
   }
 });
 
+function getOsType(){
+   const agent = navigator.userAgent
+   if(agent.indexOf("Mac") != -1){
+     return 91
+   }else{
+     return 17
+   }
+}
 
-$("#thole-editor").bind("keyup",function(event){
+
+$("#thole-editor").bind("keyup", function (event) {
   var k = event.which;
-  if(k === 17){
+  const ctrlK = getOsType()
+  if (k === ctrlK) {
     ctrlDown = false
   }
 });
 
-function funCtrlS(){
+function funCtrlS() {
+  saveArticle()
+}
+
+function saveArticle() {
   console.log("save")
 }
+
+
+$("#input-tags").tagsinput();

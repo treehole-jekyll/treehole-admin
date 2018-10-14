@@ -1,3 +1,4 @@
 **/*.min.js
 **/dist/
 treehole*.js
+jquery.tagsinput.js

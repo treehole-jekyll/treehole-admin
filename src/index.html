@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -10,23 +11,28 @@
   <!-- Icons -->
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="node_modules/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
+  <link href="http://cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/taginput/treehole-style.css">
 
-   <!-- REQUIRED SCRIPTS -->
-   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-   <script src="node_modules/pace-progress/pace.min.js"></script>
-   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-   <script src="node_modules/@racikui/racikui-bootstrap/dist/js/racikui.min.js"></script>
-   <script type="text/javascript" src="js/moment.min.js"></script>
-   <script type="text/javascript" src="js/daterangepicker.js"></script>
-   <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+  <!-- REQUIRED SCRIPTS -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@racikui/racikui-bootstrap/dist/js/racikui.min.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/daterangepicker.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+  <script src="http://cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 
   <title>TreeHole 管理端</title>
 </head>
+
 <body class="o-app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show ui-indigo">
   <!-- Header -->
   <header class="o-header navbar">
@@ -34,8 +40,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand text-brand" href="#">
-      <div class="navbar-brand-full"><h3 class="m-0">TreeHole</h3></div>
-      <div class="navbar-brand-minimized"><h3 class="m-0">THole</h3></div>
+      <div class="navbar-brand-full">
+        <h3 class="m-0">TreeHole</h3>
+      </div>
+      <div class="navbar-brand-minimized">
+        <h3 class="m-0">THole</h3>
+      </div>
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
       <span class="navbar-toggler-icon"></span>
@@ -80,7 +90,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
-            <strong>Account</strong>
+            <strong>欢迎你： <span>Admin</span></strong>
           </div>
           <a class="dropdown-item" href="#">
             <i class="fa fa-bell-o"></i> Updates
@@ -124,14 +134,14 @@
         <ul class="nav">
           <!-- Dashboard -->
           <li class="nav-item">
-            <a class="nav-link" href="main.html">
+            <a class="nav-link" href="dashboard.html">
               <i class="nav-icon icon-speedometer"></i> 首页
               <!-- <span class="badge badge-success">NEW</span> -->
             </a>
           </li>
           <li class="nav-title">文章管理</li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/new-article.html">
+            <a class="nav-link" href="pages/article-create.html">
               <i class="nav-icon icon-plus"></i> 新建发布 </a>
           </li>
           <li class="nav-item">
@@ -168,6 +178,10 @@
                   <i class="nav-icon fa fa-circle-o"></i>访问日志</a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/system-log.html">
+              <i class="nav-icon icon-settings"></i> 系统日志 </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/settings-system.html">
@@ -208,20 +222,22 @@
   <!-- Footer -->
   <footer class="o-footer">
     <div>
-      <strong><a href="#">RacikUI</a></strong>
-      <span>&copy; 2018 racikproject.</span>
+      <strong><a href="#">TreeHole</a></strong>
+      <span>&copy; 2018 zhangyingwei.</span>
     </div>
 
     <div class="ml-auto">
-      <strong>Version</strong> 1.2.0
+      <strong>Version</strong> 0.0.1
     </div>
   </footer>
   <!-- /.Footer -->
   <script>
     $('#loadview').ajaxLoad();
-    $(document).ajaxComplete(function() {
-        Pace.restart()
+    $(document).ajaxComplete(function () {
+      Pace.restart()
     });
+
   </script>
 </body>
+
 </html>

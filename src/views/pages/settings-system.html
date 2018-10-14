@@ -19,7 +19,145 @@
 <!--/.row-->
 
 <div class="row">
-  系统设置,暂时不知道放什么
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header no-border">
+        <div class="d-flex justify-content-between">
+          <h3 class="card-title">账户信息</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex">
+          <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">登录名</label>
+                <div class="col-md-10">
+                  <input type="text" id="login_user_name" disabled name="login_user_name" class="form-control form-control-sm" placeholder="请输入登录名" value="admin">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input">昵称</label>
+                <div class="col-md-10">
+                  <input type="text" id="niki_name" disabled name="niki_name" class="form-control form-control-sm" placeholder="请输入昵称" value="风车361">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="email-input">登录密码</label>
+                <div class="col-md-10">
+                  <input type="password" id="login_passwd" disabled name="login_passwd" class="form-control form-control-sm" placeholder="请输入登录密码" value="asfdlkjasfkjaslkj">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="email-input">邮箱</label>
+                <div class="col-md-10">
+                  <input type="email" id="email" disabled name="email" class="form-control form-control-sm" placeholder="请输入登录邮箱" value="zhangyw@gmail.com">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary">
+          <i class="fa fa-dot-circle-o"></i> 修改</button>
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col-lg-6 -->
+
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header no-border">
+        <div class="d-flex justify-content-between">
+          <h3 class="card-title">第三方账号绑定</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex">
+          <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Github</label>
+                <div class="col-md-8">
+                  <input type="text" id="github" name="github" class="form-control form-control-sm" disabled value="zhangyingwei" placeholder="请输入GitHub用户名">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">新浪微博</label>
+                <div class="col-md-8">
+                  <input type="text" id="weibo" name="weibo" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">微信</label>
+                <div class="col-md-8">
+                  <input type="text" id="wechat" name="wechat" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">豆瓣</label>
+                <div class="col-md-8">
+                  <input type="text" id="douban" name="douban" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">掘金</label>
+                <div class="col-md-8">
+                  <input type="text" id="juejin" name="juejin" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">开源中国</label>
+                <div class="col-md-8">
+                  <input type="text" id="oschina" name="oschina" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Facebook</label>
+                <div class="col-md-8">
+                  <input type="text" id="facebook" name="facebook" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Twitter</label>
+                <div class="col-md-8">
+                  <input type="text" id="twitter" name="twitter" class="form-control form-control-sm" disabled value="fengche361" placeholder="安装时间">
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary btn-sm">编辑</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col-lg-6 -->
 </div>
 <!--/.row-->
 </div>
