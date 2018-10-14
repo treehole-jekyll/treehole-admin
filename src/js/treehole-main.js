@@ -1,3 +1,39 @@
+var articleCount = 0;
+const app = new Vue({
+  el: '#treehole-dashboard',
+  data: {
+    message: 'Hello Vue!',
+    countData: {
+      articleCount: {
+        count: articleCount
+      },
+      commontCount: {
+        count: 10086,
+        newAddCount: 12,
+        peopleCount: 100
+      },
+      resourcesCount: {
+        count: 112
+      },
+      visitCount: {
+        count: 112
+      }
+    }
+  },
+  methods: {
+    getArticleCount: function() {
+      const self = this
+      setTimeout(function(){
+        self.countData.articleCount.count = 1230
+      },2000)
+    }
+  },
+  mounted: function(){
+    this.getArticleCount()
+  }
+})
+
+
 var ticksStyle = {
   fontColor: '#495057',
   fontStyle: 'bold' // Disable the on-canvas tooltip

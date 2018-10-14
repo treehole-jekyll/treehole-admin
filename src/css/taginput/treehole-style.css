@@ -1,0 +1,20 @@
+.bootstrap-tagsinput{
+  border: 0;
+}
+.bootstrap-tagsinput .tag {
+  background-color: #0586ff;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.form-control-div {
+  padding: 0;
+}
+
+.bootstrap-tagsinput input{
+  width: auto;
+  line-height: 23px;
+  border: 0;
+}
+
+[v-cloak]{ display:none;}

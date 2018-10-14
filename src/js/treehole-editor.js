@@ -51,7 +51,7 @@ function getOsType(){
 $("#thole-editor").bind("keyup", function (event) {
   var k = event.which;
   const ctrlK = getOsType()
-  if (k === ctrlk) {
+  if (k === ctrlK) {
     ctrlDown = false
   }
 });
@@ -63,3 +63,6 @@ function funCtrlS() {
 function saveArticle() {
   console.log("save")
 }
+
+
+$("#input-tags").tagsinput();

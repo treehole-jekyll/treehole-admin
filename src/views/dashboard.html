@@ -2,7 +2,7 @@
 <script src="node_modules/chart.js/dist/Chart.min.js"></script>
 <script src="js/treehole-main.js"></script>
 
-<div class="animated fadeIn">
+<div class="animated fadeIn" id="treehole-dashboard">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">首页</h2>
@@ -22,7 +22,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-primary">
         <div class="card-body pb-0">
-          <div class="text-value">675</div>
+          <div class="text-value" v-cloak >{{ countData.articleCount.count }}</div>
           <div>文章总数</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -34,17 +34,17 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-success">
         <div class="card-body pb-0">
-          <div class="text-value">12570</div>
+          <div class="text-value" v-cloak>{{ countData.commontCount.count }}</div>
           <div>评论总数</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
           <div class="brand-card-body">
             <div>
-              <div class="text-value">89</div>
+              <div class="text-value" v-cloak>{{ countData.commontCount.newAddCount }}</div>
               <div class="text-uppercase text-muted small">昨日新增</div>
             </div>
             <div>
-              <div class="text-value">459</div>
+              <div class="text-value" v-cloak >{{ countData.commontCount.peopleCount }}</div>
               <div class="text-uppercase text-muted small">评论人数</div>
             </div>
           </div>
@@ -55,7 +55,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-warning">
         <div class="card-body pb-0">
-          <div class="text-value">7.560</div>
+          <div class="text-value" v-cloak>{{ countData.resourcesCount.count }}</div>
           <div>素材总数</div>
         </div>
         <div class="chart-wrapper mt-3" style="height:70px;">
@@ -67,7 +67,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card text-white bg-danger">
         <div class="card-body pb-0">
-          <div class="text-value">100</div>
+          <div class="text-value" v-cloak>{{ countData.visitCount.count }}</div>
           <div>访问统计</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
