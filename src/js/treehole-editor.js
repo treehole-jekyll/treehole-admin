@@ -1,18 +1,15 @@
 var editor = new mditor(document.getElementById('thole-editor'), {
   previewClass: 'treehole-article'
 })
-
-
 function readyNumber() {
   $('textarea').each(function () {
     this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;');
-  }).on('input', function () {
+  }).on('input propertychange', function () {
     // this.style.height = 'auto';
+    console.log(132)
     this.style.height = (this.scrollHeight) + 'px';
   })
 }
-
-
 readyNumber()
 
 // hotkeys('ctrl+s', function(event,handler) {
@@ -63,6 +60,3 @@ function funCtrlS() {
 function saveArticle() {
   console.log("save")
 }
-
-
-$("#input-tags").tagsinput();

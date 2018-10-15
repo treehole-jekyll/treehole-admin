@@ -1,60 +1,63 @@
 var articleCount = 0;
-const app = new Vue({
-  el: '#treehole-dashboard',
-  data: {
-    message: 'Hello Vue!',
-    countData: {
-      articleCount: {
-        count: articleCount
+var app = undefined
+if(!app){
+  new Vue({
+    el: '#treehole-dashboard',
+    data: {
+      message: 'Hello Vue!',
+      countData: {
+        articleCount: {
+          count: articleCount
+        },
+        commontCount: {
+          count: 10086,
+          newAddCount: 12,
+          peopleCount: 100
+        },
+        resourcesCount: {
+          count: 112
+        },
+        visitCount: {
+          count: 112
+        }
       },
-      commontCount: {
-        count: 10086,
-        newAddCount: 12,
-        peopleCount: 100
+      weekCount: {
+        pvCount: 10,
+        uvCount: 75,
+        ipCount: 12340,
+        commontCount: 0
       },
-      resourcesCount: {
-        count: 112
-      },
-      visitCount: {
-        count: 112
+      loginLog: [{
+        ip: "192.168.1.1",
+        ts: "2018-01-01 00:00:00",
+        action: "登录： admin"
+      },{
+        ip: "192.168.1.1",
+        ts: "2018-01-01 00:00:00",
+        action: "登录： admin"
+      },{
+        ip: "192.168.1.1",
+        ts: "2018-01-01 00:00:00",
+        action: "登录： admin"
+      },{
+        ip: "192.168.1.1",
+        ts: "2018-01-01 00:00:00",
+        action: "登录： admin"
+      }]
+    },
+    methods: {
+      getArticleCount: function() {
+        const self = this
+        setTimeout(function(){
+          self.countData.articleCount.count = 1230
+        },2000)
       }
     },
-    weekCount: {
-      pvCount: 10,
-      uvCount: 75,
-      ipCount: 12340,
-      commontCount: 0
-    },
-    loginLog: [{
-      ip: "192.168.1.1",
-      ts: "2018-01-01 00:00:00",
-      action: "登录： admin"
-    },{
-      ip: "192.168.1.1",
-      ts: "2018-01-01 00:00:00",
-      action: "登录： admin"
-    },{
-      ip: "192.168.1.1",
-      ts: "2018-01-01 00:00:00",
-      action: "登录： admin"
-    },{
-      ip: "192.168.1.1",
-      ts: "2018-01-01 00:00:00",
-      action: "登录： admin"
-    }]
-  },
-  methods: {
-    getArticleCount: function() {
-      const self = this
-      setTimeout(function(){
-        self.countData.articleCount.count = 1230
-      },2000)
+    mounted: function(){
+      this.getArticleCount()
     }
-  },
-  mounted: function(){
-    this.getArticleCount()
-  }
-})
+  })
+}
 
 
 var ticksStyle = {
