@@ -18,7 +18,30 @@ const app = new Vue({
       visitCount: {
         count: 112
       }
-    }
+    },
+    weekCount: {
+      pvCount: 10,
+      uvCount: 75,
+      ipCount: 12340,
+      commontCount: 0
+    },
+    loginLog: [{
+      ip: "192.168.1.1",
+      ts: "2018-01-01 00:00:00",
+      action: "登录： admin"
+    },{
+      ip: "192.168.1.1",
+      ts: "2018-01-01 00:00:00",
+      action: "登录： admin"
+    },{
+      ip: "192.168.1.1",
+      ts: "2018-01-01 00:00:00",
+      action: "登录： admin"
+    },{
+      ip: "192.168.1.1",
+      ts: "2018-01-01 00:00:00",
+      action: "登录： admin"
+    }]
   },
   methods: {
     getArticleCount: function() {
