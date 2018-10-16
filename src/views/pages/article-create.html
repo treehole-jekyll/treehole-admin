@@ -1,8 +1,4 @@
-<!-- <link rel="stylesheet" type="text/css" href="css/taginput/jquery.tagsinput.css" />
-<script type="text/javascript" src="js/taginput/jquery.tagsinput.js"></script> -->
 <script src="js/mditor.js"></script>
-<script src="js/treehole-editor.js"></script>
-<script src="js/treehole-file-upload.js"></script>
 <script src="js/treehole/treehole-article-create.js"></script>
 
 <div class="animated fadeIn" id="treehole-article-create">
@@ -105,13 +101,13 @@
         </div>
         <div class="col-md-4">
           <div class="card" id="upload-warpper" style="height: 100%;">
-            <div class="upload-text"><i class="fa fa-cloud-upload fa-lg"></i> <span>上传预览图</span></div>
-            <input type="file" class="btn upload-btn" id="fileload" multiple onchange="preview()" />
+            <div class="upload-text"><i class="fa fa-cloud-upload fa-lg"></i> <span>选择预览图</span></div>
+            <input type="file" class="btn upload-btn" id="fileload" @change="inputImage" />
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <textarea id="thole-editor">
+        <textarea id="thole-editor" class="treehole-editor" v-cloak >
 文章简介
 
 ------
