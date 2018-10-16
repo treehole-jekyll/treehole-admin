@@ -81,13 +81,13 @@
             </tbody>
           </table>
           <ul class="pagination pagination-sm">
-            <li class="page-item">
+            <li class="page-item" @click="prePage" >
               <a class="page-link" href="#">Prev</a>
             </li>
-            <li class="page-item active" v-for="(a,index) in pageList()"  >
+            <li class="page-item" :class="getPageType(index)" v-for="(a,index) in pageList()" @click="pageChange(index)" >
               <a class="page-link" href="#" v-text="index+1" ></a>
             </li>
-            <li class="page-item">
+            <li class="page-item" @click="nextPage" >
               <a class="page-link" href="#">Next</a>
             </li>
           </ul>
