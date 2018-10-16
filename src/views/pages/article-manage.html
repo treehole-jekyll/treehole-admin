@@ -1,4 +1,6 @@
-<div class="animated fadeIn">
+<script src="js/treehole/treehole-article-manage.js"></script>
+
+<div class="animated fadeIn" id="treehole-article-manage">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">历史文章管理</h2>
@@ -22,18 +24,15 @@
         <div class="card-header">
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" id="input1-group1" name="input1-group1" class="form-control form-control-sm" placeholder="标题">
+              <input type="text" v-model="search.title" class="form-control form-control-sm" placeholder="标题">
             </div>
             <div class="col-sm-3">
-                <select id="select3" name="select3" class="form-control form-control-sm">
-                    <option value="0">选择文章状态</option>
-                    <option value="1">已发布</option>
-                    <option value="2">未发布</option>
-                    <option value="3">已删除</option>
-                  </select>
+                <select v-model="search.statu" class="form-control form-control-sm">
+                    <option v-for="statu in initData.article.status" :value="statu.value" v-text="statu.name"></option>
+                </select>
             </div>
             <div class="col-sm-3">
-                <button type="submit" class="btn btn-sm btn-primary">
+                <button type="submit" class="btn btn-sm btn-primary" @click="query" >
                     <i class="fa fa-dot-circle-o"></i> 查询
                   </button>
             </div>
@@ -53,32 +52,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>捅破那层窗户纸，二叉树的遍历真特么简单</td>
-                <td>二叉树是一种非常神奇的树，由于其在查找排序等某些方面的优越性....</td>
-                <td>
-                  <span class="badge badge-secondary">关于JAVA的一些东西</span>
-                </td>
-                <td>
-                  <span class="badge badge-success">java</span>
-                  <span class="badge badge-success">生活</span>
-                </td>
-                <td>
-                  <label class="switch switch-label switch-pill switch-outline-primary">
-                    <input type="checkbox" class="switch-input" checked>
-                    <span class="switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
-                  </label>
-                </td>
-                <td>
-                  <span class="badge badge-warning">未发布</span>
-                </td>
-                <td>
-                  <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-primary" disabled>发布</button>
-                    <button type="button" class="btn btn-success">编辑</button>
-                    <button type="button" class="btn btn-danger">删除</button>
-                  </div>
-                </td>
+              <tr v-for="line in data" >
+                  <td v-text="line.title"></td>
+                  <td v-text="line.desc" ></td>
+                  <td>
+                    <span class="badge badge-secondary" v-text="line.kind" ></span>
+                  </td>
+                  <td>
+                    <span class="badge badge-success" v-for="tag in line.tags" v-text="tag" ></span>
+                  </td>
+                  <td>
+                    <label class="switch switch-label switch-pill switch-outline-primary switch-sm">
+                      <input type="checkbox" class="switch-input" v-model="line.allowCommont" >
+                      <span class="switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <span class="badge badge-warning" :value="line.statu" v-text="line.statuText" ></span>
+                  </td>
+                  <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                      <button type="button" class="btn btn-primary" disabled>发布</button>
+                      <button type="button" class="btn btn-success"@click="editLine(line)" >编辑</button>
+                      <button type="button" class="btn btn-danger">删除</button>
+                    </div>
+                  </td>
               </tr>
             </tbody>
           </table>
@@ -86,17 +84,8 @@
             <li class="page-item">
               <a class="page-link" href="#">Prev</a>
             </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">4</a>
+            <li class="page-item active" v-for="(a,index) in pageList()"  >
+              <a class="page-link" href="#" v-text="index+1" ></a>
             </li>
             <li class="page-item">
               <a class="page-link" href="#">Next</a>
