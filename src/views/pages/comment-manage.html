@@ -1,4 +1,6 @@
-<div class="animated fadeIn">
+<script src="js/treehole/treehole-comment-manage.js"></script>
+
+<div class="animated fadeIn" id="treehole-comment-manage">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">评论管理</h2>
@@ -7,7 +9,7 @@
       <ul class="d-flex list-unstyled">
         <li class="breadcrumb-item"><i class="fa fa-home"></i></li>
         <li class="breadcrumb-item active">
-          <a href="#"><i class="icon-puzzle"></i> 评论管理</a>
+          <a href="#">评论管理</a>
         </li>
       </ul>
     </li>
@@ -32,9 +34,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>捅破那层窗户纸，二叉树的遍历真特么简单</td>
-                <td>二叉树是一种非常神奇的树，由于其在查找排序等某些方面的优越性....</td>
+              <tr v-for="line in data" >
+                <td v-text="line.title" ></td>
+                <td v-text="line.content"></td>
                 <td>
                   <span class="badge badge-secondary">小甜甜</span>
                 </td>
@@ -55,22 +57,13 @@
             </tbody>
           </table>
           <ul class="pagination pagination-sm">
-            <li class="page-item">
+            <li class="page-item" @click="prePage" >
               <a class="page-link" href="#">Prev</a>
             </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
+            <li class="page-item" :class="getPageType(index)" v-for="(a,index) in pageList()" @click="pageChange(index)" >
+              <a class="page-link" href="#" v-text="index+1" ></a>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
+            <li class="page-item" @click="nextPage" >
               <a class="page-link" href="#">Next</a>
             </li>
           </ul>

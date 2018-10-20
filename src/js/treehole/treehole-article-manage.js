@@ -61,7 +61,8 @@ if (!manageArticleApp) {
         console.log(line)
       },
       pageList: function () {
-        return new Array(this.data.length)
+        const length = this.getTotalPage()
+        return new Array(length)
       },
       getPageType: function (index) {
         const currentPage = this.page.current - 1
@@ -88,7 +89,7 @@ if (!manageArticleApp) {
         if(this.page.total%this.page.pageSize == 0){
           return this.page.total / this.page.pageSize
         }else {
-          return (this.page.total / this.page.pageSize) + 1
+          return parseInt(this.page.total / this.page.pageSize) + 1
         }
       }
     },

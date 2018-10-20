@@ -1,37 +1,23 @@
 var app = undefined
 
-if (!app) {
+
+if(!app){
   app = new Vue({
-    el: '#treehole-kind-manage',
+    el: '#treehole-comment-manage',
     data: {
-      window: {
-        add: {
-          show: false
-        }
-      },
       data: [
         {
-          id: 1,
-          name: "Java那些事",
-          statu: 0
-        },
-        {
-          id: 2,
-          name: "php那些事",
-          statu: 9
+          title: "捅破那层窗户纸，二叉树的遍历真特么简单",
+          content: "二叉树是一种非常神奇的树，由于其在查找排序等某些方面的优越性...."
         }
       ],
       page: {
         current: 1,
         pageSize: 10,
-        total: 2
+        total: 20
       }
     },
     methods: {
-      openAddWindow: function () {
-        this.window.add.show = true
-        console.log(window)
-      },
       pageList: function () {
         return new Array(this.getTotalPage())
       },
@@ -48,7 +34,7 @@ if (!app) {
       },
       nextPage: function() {
         if(this.page.current < this.getTotalPage()){
-          this.page.current += 1
+          this.page.current +=1
         }
       },
       prePage: function() {
