@@ -22,7 +22,6 @@
       <!-- Simple Table -->
       <div class="card">
         <div class="card-header">
-          <span v-if="window.add.show" v-cloak>add new</span>
           <button class="btn btn-sm btn-primary" @click="openAddWindow">
             <i class="fa fa-dot-circle-o"></i> 新增
           </button>
@@ -47,14 +46,14 @@
                 </td>
                 <td v-cloak>
                   <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-success btn-sm" >编辑</button>
-                    <button type="button" class="btn btn-danger btn-sm" >删除</button>
+                    <button type="button" class="btn btn-success btn-sm">编辑</button>
+                    <button type="button" class="btn btn-danger btn-sm">删除</button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <ul class="pagination pagination-sm" v-cloak >
+          <ul class="pagination pagination-sm" v-cloak>
             <li class="page-item" @click="prePage">
               <a class="page-link" href="#">Prev</a>
             </li>
@@ -71,4 +70,62 @@
     <!--/.col-->
   </div>
   <!--/.row-->
+  <!-- 弹出框 -->
+  <transition name="alert-window-action">
+    <div class="window-warper" v-cloak v-if="window.add.show">
+        <div class="card card-accent-primary alert-window">
+          <div class="card-header">
+            <span class="window-title">新增分类信息</span>
+            <div class="card-header-actions">
+              <a class="btn card-header-action" @click="closeWindow">
+                <li class="fa fa-close"></li>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <input type="text" class="form-control" placeholder="输入分类名称">
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm btn-primary">提交</button>
+            <button class="btn btn-sm btn-danger" @click="closeWindow" >关闭</button>
+          </div>
+        </div>
+    </div>
+  </transition>
+
+  <!-- 弹出框 demo -->
+  <!-- <transition name="alert-window-action">
+    <div class="window-warper" v-cloak v-if="window.add.show">
+        <div class="card card-accent-primary alert-window">
+          <div class="card-header">
+            <span class="window-title">新增分类信息</span>
+            <div class="card-header-actions">
+              <a class="btn card-header-action" @click="closeWindow">
+                <li class="fa fa-close"></li>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <input type="text" class="form-control" placeholder="输入分类名称">
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm btn-primary">提交</button>
+            <button class="btn btn-sm btn-danger">关闭</button>
+          </div>
+        </div>
+    </div>
+  </transition> -->
+
+
+  <!-- loading -->
+  <transition name="alert-window-action">
+    <div class="window-warper" v-cloak v-if="loading">
+        <div class="loading-icon">
+          <div class="span">
+              <div class="square"></div>
+          </div>
+          <div class="loaing-text">加载中...</div>
+        </div>
+    </div>
+  </transition>
 </div>

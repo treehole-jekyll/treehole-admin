@@ -9,6 +9,7 @@ if (!app) {
           show: false
         }
       },
+      loading: false,
       data: [
         {
           id: 1,
@@ -62,6 +63,9 @@ if (!app) {
         }else {
           return parseInt(this.page.total / this.page.pageSize) + 1
         }
+      },
+      closeWindow: function() {
+        this.window.add.show = false
       }
     },
     mounted: function() {
