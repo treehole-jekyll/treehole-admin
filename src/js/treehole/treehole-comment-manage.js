@@ -1,6 +1,4 @@
 var app = undefined
-
-
 if(!app){
   app = new Vue({
     el: '#treehole-comment-manage',

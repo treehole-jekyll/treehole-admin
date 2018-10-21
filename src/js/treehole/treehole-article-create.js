@@ -6,6 +6,10 @@ if (!app) {
       msg: "test",
       editor: undefined,
       imageList: [],
+      tools: {
+        notice: false,
+        noticeMsg: ""
+      },
       kinds: [{
           name: "请选择",
           value: 0
@@ -91,7 +95,7 @@ if (!app) {
           self.previewImage(ele)
         })
       },
-      fileTypeFilter: function(file) {
+      fileTypeFilter: function (file) {
         const result = $.inArray(file.type, ["image/png", "image/gif", "image/jpg", "image/jpeg"]) >= 0
         if (!result) {
           console.log("file type not accepted", file.type)
@@ -143,16 +147,24 @@ if (!app) {
         $.ajax({
           url: "1.php",
           type: "POST",
-          data:formData,
-          cache:false,         //不设置缓存
-          processData: false,  // 不处理数据
-          contentType: false   // 不设置内容类型
-    });
+          data: formData,
+          cache: false, //不设置缓存
+          processData: false, // 不处理数据
+          contentType: false // 不设置内容类型
+        });
+      },
+      autoSave(){
+        const self = this
+        setInterval(() => {
+          self.tools.noticeMsg="自动保存."
+          self.tools.notice = true
+        },10*1000)
       }
     },
     mounted: function () {
       this.initEditor()
       $("#input-tags").tagsinput();
+      this.autoSave()
     }
   })
 }

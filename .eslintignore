@@ -2,3 +2,4 @@
 **/dist/
 treehole*.js
 jquery.tagsinput.js
+**/build/

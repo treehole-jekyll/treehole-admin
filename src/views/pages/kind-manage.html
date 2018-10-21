@@ -46,24 +46,14 @@
                 </td>
                 <td v-cloak>
                   <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-success btn-sm">编辑</button>
+                    <button type="button" class="btn btn-success btn-sm" @click="editLine">编辑</button>
                     <button type="button" class="btn btn-danger btn-sm">删除</button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <ul class="pagination pagination-sm" v-cloak>
-            <li class="page-item" @click="prePage">
-              <a class="page-link" href="#">Prev</a>
-            </li>
-            <li class="page-item" :class="getPageType(index)" v-for="(a,index) in pageList()" @click="pageChange(index)">
-              <a class="page-link" href="#" v-text="index+1"></a>
-            </li>
-            <li class="page-item" @click="nextPage">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
+          <Pagination :pageinfo="page" @change="pageChange" ></Pagination>
         </div>
       </div>
     </div>
@@ -73,23 +63,23 @@
   <!-- 弹出框 -->
   <transition name="alert-window-action">
     <div class="window-warper" v-cloak v-if="window.add.show">
-        <div class="card card-accent-primary alert-window">
-          <div class="card-header">
-            <span class="window-title">新增分类信息</span>
-            <div class="card-header-actions">
-              <a class="btn card-header-action" @click="closeWindow">
-                <li class="fa fa-close"></li>
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <input type="text" class="form-control" placeholder="输入分类名称">
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-sm btn-primary">提交</button>
-            <button class="btn btn-sm btn-danger" @click="closeWindow" >关闭</button>
+      <div class="card card-accent-primary alert-window">
+        <div class="card-header">
+          <span class="window-title">新增分类信息</span>
+          <div class="card-header-actions">
+            <a class="btn card-header-action" @click="closeWindow">
+              <li class="fa fa-close"></li>
+            </a>
           </div>
         </div>
+        <div class="card-body">
+          <input type="text" class="form-control" placeholder="输入分类名称">
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-sm btn-primary" @click="submitWindow">提交</button>
+          <button class="btn btn-sm btn-danger" @click="closeWindow">关闭</button>
+        </div>
+      </div>
     </div>
   </transition>
 
@@ -115,17 +105,58 @@
         </div>
     </div>
   </transition> -->
+  <Loading :show="loading"></Loading>
 
-
-  <!-- loading -->
-  <transition name="alert-window-action">
-    <div class="window-warper" v-cloak v-if="loading">
-        <div class="loading-icon">
-          <div class="span">
-              <div class="square"></div>
+  <!--alert demo-->
+  <!-- <transition name="alert-window-action">
+    <div class="window-warper" v-cloak v-if="alert">
+        <div class="card card-accent-danger alert-box">
+          <div class="card-header">
+            <span class="window-title">提示</span>
           </div>
-          <div class="loaing-text">加载中...</div>
+          <div class="card-body">
+            这里是一个提示
+          </div>
+          <div class="card-footer alert-footer">
+              <button class="btn btn-sm btn-primary inline-block-button" @click="alert=false">知道了</button>
+          </div>
         </div>
     </div>
-  </transition>
+  </transition> -->
+  <!-- alert demo end-->
+  <Alert :alert="alert" message="no message" @close="alert = false"></Alert>
+
+  <!--notice demo-->
+  <!-- <transition name="notice-window-action">
+    <div class="card bg-primary text-white notice-box" v-cloak v-if="notice" >
+        <div class="card-body">
+          这里是一个提示
+        </div>
+      </div>
+  </transition> -->
+  <!-- notice demo end-->
+
+  <Notice :notice="notice" :message="noticeMsg" @close="notice=false"></Notice>
+
+
+  <!-- confirm demo -->
+  <!-- <transition name="alert-window-action">
+    <div class="window-warper" v-cloak v-if="confirm">
+      <div class="card card-accent-danger confirm-box">
+        <div class="card-header">
+          <span class="window-title">提示</span>
+        </div>
+        <div class="card-body text-center">
+          确定删除吗?
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-sm btn-primary">确定</button>
+          <button class="btn btn-sm btn-danger" @click="confirm = false" >取消</button>
+        </div>
+      </div>
+    </div>
+  </transition> -->
+
+  <Confirm :confirm="confirm" message="确定删除吗?" @close="confirm = false" @ok="notice = true;confirm=false" ></Confirm>
+
 </div>

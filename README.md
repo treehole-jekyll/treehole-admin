@@ -60,3 +60,5 @@ reserves the right to change the license of future releases.
 RacikUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying one of our [premium racikui templates]().
 
 As of now I am exploring the possibility of working on RacikUI fulltime - if you are a business that is building core products using RacikUI, I am also open to conversations regarding custom sponsorship / consulting arrangements. Get in touch on [Twitter](https://twitter.com/boedwinangun).
+
+sudo npm install --unsafe-perm=true --allow-root --save-dev node-sass -D

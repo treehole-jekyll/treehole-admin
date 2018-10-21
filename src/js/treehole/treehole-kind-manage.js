@@ -10,6 +10,10 @@ if (!app) {
         }
       },
       loading: false,
+      alert: false,
+      notice: false,
+      noticeMsg: '',
+      confirm: false,
       data: [
         {
           id: 1,
@@ -25,7 +29,7 @@ if (!app) {
       page: {
         current: 1,
         pageSize: 10,
-        total: 2
+        total: 100
       }
     },
     methods: {
@@ -33,39 +37,22 @@ if (!app) {
         this.window.add.show = true
         console.log(window)
       },
-      pageList: function () {
-        return new Array(this.getTotalPage())
-      },
-      getPageType: function (index) {
-        const currentPage = this.page.current - 1
-        if (index === currentPage) {
-          return "active"
-        } else {
-          return ""
-        }
-      },
-      pageChange: function(index){
-        this.page.current = index + 1
-      },
-      nextPage: function() {
-        if(this.page.current < this.getTotalPage()){
-          this.page.current += 1
-        }
-      },
-      prePage: function() {
-        if(this.page.current > 1){
-          this.page.current -= 1
-        }
-      },
-      getTotalPage: function() {
-        if(this.page.total%this.page.pageSize == 0){
-          return this.page.total / this.page.pageSize
-        }else {
-          return parseInt(this.page.total / this.page.pageSize) + 1
-        }
-      },
       closeWindow: function() {
         this.window.add.show = false
+      },
+      editLine: function() {
+        this.confirm = true
+      },
+      submitWindow: function() {
+        this.loading = true
+        const self = this
+        setTimeout(() => {
+          self.loading = false
+        }, 2000);
+      },
+      pageChange: function(current) {
+        this.noticeMsg = current
+        this.notice = true
       }
     },
     mounted: function() {
