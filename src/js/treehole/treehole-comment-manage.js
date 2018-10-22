@@ -12,40 +12,12 @@ if(!app){
       page: {
         current: 1,
         pageSize: 10,
-        total: 20
+        total: 135
       }
     },
     methods: {
-      pageList: function () {
-        return new Array(this.getTotalPage())
-      },
-      getPageType: function (index) {
-        const currentPage = this.page.current - 1
-        if (index === currentPage) {
-          return "active"
-        } else {
-          return ""
-        }
-      },
-      pageChange: function(index){
-        this.page.current = index + 1
-      },
-      nextPage: function() {
-        if(this.page.current < this.getTotalPage()){
-          this.page.current +=1
-        }
-      },
-      prePage: function() {
-        if(this.page.current > 1){
-          this.page.current -= 1
-        }
-      },
-      getTotalPage: function() {
-        if(this.page.total%this.page.pageSize == 0){
-          return this.page.total / this.page.pageSize
-        }else {
-          return parseInt(this.page.total / this.page.pageSize) + 1
-        }
+      pageChange: function(current) {
+        console.log(current)
       }
     },
     mounted: function() {

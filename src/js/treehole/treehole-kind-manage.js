@@ -9,11 +9,14 @@ if (!app) {
           show: false
         }
       },
+      tools: {
+        confirm: false,
+        confirmMessage: ""
+      },
       loading: false,
       alert: false,
       notice: false,
       noticeMsg: '',
-      confirm: false,
       data: [
         {
           id: 1,
@@ -40,8 +43,20 @@ if (!app) {
       closeWindow: function() {
         this.window.add.show = false
       },
-      editLine: function() {
-        this.confirm = true
+      editLine: function(line) {
+        // this.confirm("")
+        console.log(line)
+      },
+      deleteLine: function(line){
+        this.confirm("确定删除?")
+      },
+      confirm: function(message) {
+        this.tools.confirm = true
+        this.tools.confirmMessage = message
+      },
+      confirmOk: function() {
+        console.log("ok")
+        this.tools.confirm = false
       },
       submitWindow: function() {
         this.loading = true

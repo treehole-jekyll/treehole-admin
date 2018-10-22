@@ -31,14 +31,18 @@ if (!app) {
       }
     },
     methods: {
+      notice: function(message) {
+        this.tools.noticeMsg=message
+        this.tools.notice = true
+      },
       save: function () {
         const tags = $("#input-tags").tagsinput('items')
         this.article.tags = tags
-        console.log("save article")
+        this.notice("save article")
         console.log(this.article)
       },
       publish: function () {
-        console.log("public article")
+        this.notice("public article")
       },
       initEditor: function () {
         this.editor = new mditor(document.getElementById('thole-editor'), {
@@ -81,7 +85,7 @@ if (!app) {
         }
       },
       funCtrlS: function () {
-        console.log("ctrl s")
+        this.save()
       },
       inputImage: function () {
         const self = this
@@ -98,7 +102,7 @@ if (!app) {
       fileTypeFilter: function (file) {
         const result = $.inArray(file.type, ["image/png", "image/gif", "image/jpg", "image/jpeg"]) >= 0
         if (!result) {
-          console.log("file type not accepted", file.type)
+          this.notice("file type not accepted : " + file.type)
         }
         return result
       },
@@ -113,7 +117,6 @@ if (!app) {
         const reader = new FileReader();
         const warpperWidth = $("#upload-warpper").width()
         const warpperHeight = $("#upload-warpper").height()
-        console.log(warpperHeight)
         reader.readAsDataURL(file);
         reader.onload = function (e) {
           url = reader.result
@@ -156,9 +159,9 @@ if (!app) {
       autoSave(){
         const self = this
         setInterval(() => {
-          self.tools.noticeMsg="自动保存."
-          self.tools.notice = true
-        },10*1000)
+          this.save()
+          self.notice("自动保存!")
+        },60*1000*2)
       }
     },
     mounted: function () {

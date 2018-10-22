@@ -44,29 +44,19 @@
                   2018年9月20日 13:00:00
                 </td>
                 <td>
-                  <span class="badge badge-warning">通过</span>
+                  <span class="badge badge-warning text-white">通过</span>
                 </td>
                 <td>
                   <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-success" disabled>通过</button>
-                    <button type="button" class="btn btn-warning">黑名单</button>
-                    <button type="button" class="btn btn-danger">删除</button>
+                    <button type="button" class="btn btn-success text-white" disabled>通过</button>
+                    <button type="button" class="btn btn-warning text-white">黑名单</button>
+                    <button type="button" class="btn btn-danger text-white">删除</button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <ul class="pagination pagination-sm">
-            <li class="page-item" @click="prePage" >
-              <a class="page-link" href="#">Prev</a>
-            </li>
-            <li class="page-item" :class="getPageType(index)" v-for="(a,index) in pageList()" @click="pageChange(index)" >
-              <a class="page-link" href="#" v-text="index+1" ></a>
-            </li>
-            <li class="page-item" @click="nextPage" >
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
+          <Pagination :pageinfo="page" @change="pageChange" ></Pagination>
         </div>
       </div>
     </div>

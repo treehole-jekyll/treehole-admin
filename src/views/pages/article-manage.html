@@ -1,6 +1,7 @@
 <script src="js/treehole/treehole-article-manage.js"></script>
 
 <div class="animated fadeIn" id="treehole-article-manage">
+  <Loading :show="tools.loading"></Loading>
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">历史文章管理</h2>
@@ -62,8 +63,8 @@
                     <span class="badge badge-success" v-for="tag in line.tags" v-text="tag" ></span>
                   </td>
                   <td>
-                    <label class="switch switch-label switch-pill switch-outline-primary switch-sm">
-                      <input type="checkbox" class="switch-input" v-model="line.allowCommont" >
+                    <label class="switch switch-label switch-pill switch-outline-primary switch-sm" >
+                      <input type="checkbox" class="switch-input" v-model="line.allowCommont" @click="changeAllowComment(line)" >
                       <span class="switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
                     </label>
                   </td>
@@ -72,29 +73,20 @@
                   </td>
                   <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                      <button type="button" class="btn btn-primary" disabled>发布</button>
+                      <button type="button" class="btn btn-primary" @click="publish(line)" >发布</button>
                       <button type="button" class="btn btn-success"@click="editLine(line)" >编辑</button>
-                      <button type="button" class="btn btn-danger">删除</button>
+                      <button type="button" class="btn btn-danger" @click="deleteLine(line)" >删除</button>
                     </div>
                   </td>
               </tr>
             </tbody>
           </table>
-          <ul class="pagination pagination-sm">
-            <li class="page-item" @click="prePage" >
-              <a class="page-link" href="#">Prev</a>
-            </li>
-            <li class="page-item" :class="getPageType(index)" v-for="(a,index) in pageList()" @click="pageChange(index)" >
-              <a class="page-link" href="#" v-text="index+1" ></a>
-            </li>
-            <li class="page-item" @click="nextPage" >
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
+          <Pagination :pageinfo="page" @change="pageChange" ></Pagination>
         </div>
       </div>
     </div>
     <!--/.col-->
   </div>
+  <Confirm :confirm="tools.confirm" :message="tools.confirmMessage" @close="tools.confirm = false" @ok="confirmOk" ></Confirm>
   <!--/.row-->
 </div>

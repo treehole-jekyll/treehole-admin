@@ -46,8 +46,8 @@
                 </td>
                 <td v-cloak>
                   <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-success btn-sm" @click="editLine">编辑</button>
-                    <button type="button" class="btn btn-danger btn-sm">删除</button>
+                    <button type="button" class="btn btn-success btn-sm" @click="editLine(line)">编辑</button>
+                    <button type="button" class="btn btn-danger btn-sm" @click="deleteLine(line)" >删除</button>
                   </div>
                 </td>
               </tr>
@@ -157,6 +157,6 @@
     </div>
   </transition> -->
 
-  <Confirm :confirm="confirm" message="确定删除吗?" @close="confirm = false" @ok="notice = true;confirm=false" ></Confirm>
+  <Confirm :confirm="tools.confirm" :message="tools.confirmMessage" @close="tools.confirm = false" @ok="confirmOk" ></Confirm>
 
 </div>

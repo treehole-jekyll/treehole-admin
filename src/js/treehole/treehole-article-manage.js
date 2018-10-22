@@ -50,47 +50,45 @@ if (!manageArticleApp) {
       page: {
         current: 1,
         pageSize: 10,
-        total: 2
+        total: 200
+      },
+      tools: {
+        loading: false,
+        confirm: false,
+        confirmMessage: ""
       }
     },
     methods: {
       query: function () {
         console.log(this.search)
+        this.tools.loading = true
+        setTimeout(() => {
+          this.tools.loading = false
+        },2000)
       },
       editLine: function (line) {
         console.log(line)
       },
-      pageList: function () {
-        const length = this.getTotalPage()
-        return new Array(length)
+      pageChange: function(current) {
+        console.log(current)
       },
-      getPageType: function (index) {
-        const currentPage = this.page.current - 1
-        if (index === currentPage) {
-          return "active"
-        } else {
-          return ""
-        }
+      changeAllowComment: function(line) {
+        console.log(line)
       },
-      pageChange: function(index){
-        this.page.current = index + 1
+      publish: function(line) {
+        console.log(line)
       },
-      nextPage: function() {
-        if(this.page.current < this.getTotalPage()){
-          this.page.current +=1
-        }
+      deleteLine: function(line) {
+        console.log(line)
+        this.confirm("确定删除吗")
       },
-      prePage: function() {
-        if(this.page.current > 1){
-          this.page.current -= 1
-        }
+      confirmOk: function() {
+        console.log('ok')
+        this.tools.confirm = false
       },
-      getTotalPage: function() {
-        if(this.page.total%this.page.pageSize == 0){
-          return this.page.total / this.page.pageSize
-        }else {
-          return parseInt(this.page.total / this.page.pageSize) + 1
-        }
+      confirm: function(message) {
+        this.tools.confirm = true
+        this.tools.confirmMessage = message
       }
     },
     mounted: function () {
