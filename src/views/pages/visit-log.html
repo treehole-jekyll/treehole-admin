@@ -1,4 +1,4 @@
-<div class="animated fadeIn">
+<div class="animated fadeIn" id="visit-log">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">访问日志</h2>
@@ -7,10 +7,10 @@
       <ul class="d-flex list-unstyled">
         <li class="breadcrumb-item"><i class="fa fa-home"></i></li>
         <li class="breadcrumb-item active">
-          <a href="#">访问统计</a>
+          <a>访问统计</a>
         </li>
         <li class="breadcrumb-item active">
-          <a href="#">访问日志</a>
+          <a>访问日志</a>
         </li>
       </ul>
     </li>
@@ -28,7 +28,7 @@
                     访问时间段
                   </span>
                 </div>
-                <input type="text" placeholder="请输入时间段" name="reservation" id="reservation" class="form-control" value="2014-5-21 - 2014-6-21" />
+                <input type="text" placeholder="请输入时间段" id="reservation" class="form-control" v-model="query.dates" />
               </div>
             </div>
             <div class="col-md-6">
@@ -38,26 +38,36 @@
                     入口页面
                   </span>
                 </div>
-                <input type="text" placeholder="请输入入口页面" class="form-control" />
+                <input type="text" placeholder="请输入入口页面" class="form-control" v-model="query.page" />
               </div>
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    自定义访问地址
+                    IP
                   </span>
                 </div>
-                <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="自定义访问地址">
+                <input type="text" class="form-control" placeholder="IP地址" v-model="query.sourceIp">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    设备
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="设备信息" v-model="query.action" >
               </div>
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <button type="reset" class="btn btn-sm btn-primary">
+              <button type="reset" class="btn btn-sm btn-primary" @click="search" >
                 <i class="fa icon-magnifier"></i> 查询
               </button>
             </div>
@@ -79,40 +89,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>2018-01-01 00:00:00</td>
-            <td>北京</td>
-            <td>百度</td>
-            <td>IPhone7</td>
-            <td>/pages</td>
-            <td>127.0.0.1</td>
+          <tr v-for="line in data" >
+            <td v-text="line.id" ></td>
+            <td v-text="line.datetime"></td>
+            <td v-text="line.area"></td>
+            <td v-text="line.source"></td>
+            <td v-text="line.device"></td>
+            <td v-text="line.page"></td>
+            <td v-text="line.ip"></td>
           </tr>
         </tbody>
       </table>
       <!-- /.card -->
     </div>
     <div>
-      <ul class="pagination pagination-sm">
-        <li class="page-item">
-          <a class="page-link" href="#">Prev</a>
-        </li>
-        <li class="page-item active">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">4</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
+      <Pagination :pageinfo="page" @change="pageChange" ></Pagination>
     </div>
     <!-- /.col-lg-6 -->
     <!-- /.col-lg-6 -->
@@ -120,4 +111,4 @@
   <!--/.row-->
 </div>
 
-<script type="text/javascript" src="js/visit-log.js"></script>
+<script type="text/javascript" src="js/treehole/treehole-settings-visit-log.js"></script>
