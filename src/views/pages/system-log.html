@@ -1,4 +1,6 @@
-<div class="animated fadeIn">
+<script type="text/javascript" src="js/treehole/treehole-settings-system-log.js"></script>
+
+<div class="animated fadeIn" id="system-log">
   <!-- Breadcrumb-->
   <ol class="breadcrumb p-0 mb-4">
     <h2 class="m-0 text-dark">系统日志</h2>
@@ -28,7 +30,7 @@
                     时间段
                   </span>
                 </div>
-                <input type="text" placeholder="请输入时间段" name="reservation" id="reservation" class="form-control" value="2014-5-21 - 2014-6-21" />
+                <input type="text" placeholder="请输入时间段" id="reservation" class="form-control" v-model="query.timeline" />
               </div>
             </div>
             <div class="col-md-6">
@@ -38,7 +40,7 @@
                     账号
                   </span>
                 </div>
-                <input type="text" placeholder="请输入操作账号" class="form-control" />
+                <input type="text" placeholder="请输入操作账号" class="form-control" v-model="query.account" />
               </div>
             </div>
           </div>
@@ -50,7 +52,7 @@
                     来源IP
                   </span>
                 </div>
-                <input type="text" placeholder="请输入IP" class="form-control" />
+                <input type="text" placeholder="请输入IP" class="form-control" v-model="query.sip" />
               </div>
             </div>
             <div class="col-md-6">
@@ -60,14 +62,14 @@
                     操作
                   </span>
                 </div>
-                <input type="text" placeholder="请输入操作内容 " class="form-control" />
+                <input type="text" placeholder="请输入操作内容 " class="form-control" v-model="query.action" />
               </div>
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <button type="reset" class="btn btn-sm btn-primary">
+              <button type="reset" class="btn btn-sm btn-primary" @click="queryAction" >
                 <i class="fa icon-magnifier"></i> 查询
               </button>
             </div>
@@ -87,38 +89,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>127.0.0.1</td>
-            <td>admin</td>
-            <td>2018-01-01 00:00:00</td>
-            <td>登录</td>
+          <tr v-for="line in datas">
+            <td v-text="line.id"></td>
+            <td v-text="line.sip"></td>
+            <td v-text="line.account"></td>
+            <td v-text="line.ts"></td>
+            <td v-text="line.action"></td>
           </tr>
         </tbody>
       </table>
       <!-- /.card -->
     </div>
     <div>
-      <ul class="pagination pagination-sm">
-        <li class="page-item">
-          <a class="page-link" href="#">Prev</a>
-        </li>
-        <li class="page-item active">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">4</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
+      <Pagination :pageinfo="page" @change="pageChange" ></Pagination>
     </div>
     <!-- /.col-lg-6 -->
     <!-- /.col-lg-6 -->
@@ -126,4 +109,4 @@
   <!--/.row-->
 </div>
 
-<script type="text/javascript" src="js/visit-log.js"></script>
+<!-- <script type="text/javascript" src="js/visit-log.js"></script> -->
