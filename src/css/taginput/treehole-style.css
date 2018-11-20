@@ -152,7 +152,7 @@
 }
 
 .notice-box {
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 100%;
   transform: translate(-310px,0px);

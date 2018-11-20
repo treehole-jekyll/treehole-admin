@@ -8,8 +8,7 @@ if (!resourcesManageApp) {
         title: '',
         type: '0'
       },
-      resourcesTypes: [
-        {
+      resourcesTypes: [{
           value: '0',
           text: '选择素材类型'
         },
@@ -30,8 +29,7 @@ if (!resourcesManageApp) {
           text: 'DOC'
         }
       ],
-      datas: [
-        {
+      datas: [{
           id: '1',
           name: '首页截图',
           updatets: '2018-01-01 00:00:00',
@@ -58,30 +56,30 @@ if (!resourcesManageApp) {
       uploadFiles: []
     },
     methods: {
-      queryAction: function() {
+      queryAction: function () {
         console.log(this.query)
         // this.uploadFiles[0].uploadSize = this.uploadFiles[0].uploadSize+1
       },
-      copyUrl: function(url) {
+      copyUrl: function (url) {
         console.log(url)
       },
-      initClipboard: function() {
+      initClipboard: function () {
         var self = this
         var clipboard = new ClipboardJS('.btn')
-        clipboard.on('success', function(e) {
+        clipboard.on('success', function (e) {
           // console.info('Text:', e.text);
           self.control.notice = true
           self.control.noticeMsg = '已经成功复制到剪贴板，快去粘贴吧'
           e.clearSelection()
         })
       },
-      pageChange: function(current) {
+      pageChange: function (current) {
         console.log(current)
       },
-      removeFile: function(line) {
-        this.uploadFiles.forEach((element,index) => {
-          if(element === line){
-            this.uploadFiles.splice(index,1)
+      removeFile: function (line) {
+        this.uploadFiles.forEach((element, index) => {
+          if (element === line) {
+            this.uploadFiles.splice(index, 1)
           }
         });
       },
@@ -95,7 +93,6 @@ if (!resourcesManageApp) {
         filesList.filter(file => {
           return true
         }).forEach(element => {
-          console.log(element);
           self.uploadFiles.push({
             name: element.name,
             size: 4470079488,
@@ -103,18 +100,26 @@ if (!resourcesManageApp) {
           })
         });
       },
+      uploadFileStage: function (index, uploadFileSize) {
+        const element = this.uploadFiles[index]
+        element.uploadSize = uploadFileSize
+        if (element.uploadSize >= element.size) {
+          this.removeFile(element)
+        }
+      }
     },
-    mounted: function() {
+    mounted: function () {
       // alert(1)
       var self = this
       this.initClipboard()
       setInterval(() => {
         // console.log(1);
-        self.uploadFiles.forEach(element => {
-          element.uploadSize = element.uploadSize+1000000
+        self.uploadFiles.forEach((element, index) => {
+          if(index == 0){
+            self.uploadFileStage(index, element.uploadSize + 10000000)
+          }
         });
-        // console.log(self.uploadFiles);
-      },100)
+      }, 100)
     }
   })
 }
