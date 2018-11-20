@@ -48,7 +48,7 @@
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-sm btn-primary" @click="editBlogInfo" v-cloak >
-            <i class="fa fa-dot-circle-o"></i> {{ control.bloginfo.editText }}</button>
+            <i class="fa fa-dot-circle-o"></i> <span v-text="control.bloginfo.editText"></span></button>
         </div>
       </div>
       <!-- /.card -->
